@@ -14,8 +14,8 @@ namespace GymSystemDesktop.Models
         public string Apellido { get; set; }
         public int Edad { get; set; }
         public string Llave { get; set; }
-        public DateTime? FechaInicio { get; set; }
-        public DateTime? FechaFin { get; set; }
+        public string FechaInicio { get; set; }
+        public string FechaFin { get; set; }
         public string PlanRegistrado { get; set; }
         public string Direccion { get; set; }
         public string Celular { get; set; }
@@ -30,14 +30,11 @@ namespace GymSystemDesktop.Models
 
             try
             {
-
-                //TODO corregir el datetaime problema al covertir a varchar
                 sql.ExecuteQueryWithParams($"spINSERT_CreateNewUserClient", new string[] { Nombre, Apellido, Edad + "", Llave, FechaInicio + "", FechaFin + "", PlanRegistrado, Direccion, Celular, Img });
                 response = true;
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.ToString());
                 response = false;
             }
 

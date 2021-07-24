@@ -32,6 +32,7 @@ namespace GymSystemDesktop
         
         Home home;
         Registro registro;
+        Usuariso usuarios;
 
         public Form1()
         {
@@ -43,6 +44,7 @@ namespace GymSystemDesktop
 
             registro = new Registro();
             home = new Home();
+            usuarios = new Usuariso();
 
             FillPanelSelected();
             FillViews();
@@ -70,12 +72,14 @@ namespace GymSystemDesktop
         {
             panelsSelected.Add(panelRegistrarSelected);
             panelsSelected.Add(panelHomeSelected);
+            panelsSelected.Add(panelUsuariosSelected);
         }
 
         private void FillViews()
         {
             views.Add(home);
             views.Add(registro);
+            views.Add(usuarios);
 
             foreach(Control view in views)
             {
@@ -127,6 +131,18 @@ namespace GymSystemDesktop
             registro.Visible = true;
 
             
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            HideSelectedPanel();
+            ((Control)lastObjectInScreen).Visible = false;
+
+            panelUsuariosSelected.Visible = true;
+            lastObjectInScreen = usuarios;
+            usuarios.Visible = true;
+
+
         }
     }
 }

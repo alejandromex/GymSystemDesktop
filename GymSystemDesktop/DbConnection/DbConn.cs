@@ -46,6 +46,8 @@ namespace GymSystemDesktop.DbConnection
 
         }
 
+     
+
         public DataTable ExecuteQueryWithParams(string query, string[] parametros)
         {
             for(int i = 0; i <parametros.Length-1; i++)

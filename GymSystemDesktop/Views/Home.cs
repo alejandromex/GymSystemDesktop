@@ -1,4 +1,5 @@
 ﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,19 +42,36 @@ namespace GymSystemDesktop.Views
                     DataTable userTable = sql.ExecuteQuery($"spSELECT_GetUserByClave {llave}");
                     if(userTable.Rows.Count > 0)
                     {
-                        lblStatusInicio.ForeColor = Color.White;
-                        lblStatusInicio.BackColor = Color.Green;
-                        lblStatusInicio.Text = "Vigencia Correcta";
-
                         DataRow user = userTable.Rows[0];
+                        string fechaInicialTexto = user["fechaFin"].ToString().Split(" ")[0];
+
+                        DateTime fechaVigencia = Convert.ToDateTime(fechaInicialTexto);
+                        if(DateTime.Now > fechaVigencia)
+                        {
+                            lblStatusInicio.ForeColor = Color.Black;
+                            lblStatusInicio.BackColor = Color.Red;
+                            lblStatusInicio.Text = "Vigencia vencida";
+                            btnRenovar.Visible = true;
+                        }
+                        else
+                        {
+                            lblStatusInicio.ForeColor = Color.White;
+                            lblStatusInicio.BackColor = Color.Green;
+                            lblStatusInicio.Text = "Vigencia Correcta";
+
+                        }
+
+                        lblVigencia.Text = "Vigencia hasta el " + fechaVigencia.ToString("yyyy-MM-dd");
+                        lblVigencia.Visible = true;
 
                         string nombre = user["nombre"].ToString();
                         string apellido = user["apellido"].ToString();
-                        string edad = user["edad"].ToString();
+                        string actividad = user["planregistrado"].ToString();
 
                         txtNombre.Text = nombre;
                         txtApellido.Text = apellido;
-                        txtEdad.Text = edad;
+                        txtActividad.Text = actividad;
+                        imgUser.Image = new Bitmap(user["img"].ToString());
 
                         isTheRestarActive = true;
                         btnLogin.Text = "Reiniciar";
@@ -68,13 +86,7 @@ namespace GymSystemDesktop.Views
                 }
                 else
                 {
-                    btnLogin.Text = "Ingresar";
-                    txtNombre.Text = "";
-                    txtApellido.Text = "";
-                    txtEdad.Text = "";
-                    txtNumeroUsuario.Text = "";
-                    lblStatusInicio.Visible = false;
-
+                    RestarForm();
                     isTheRestarActive = false;
                 }
             
@@ -87,11 +99,30 @@ namespace GymSystemDesktop.Views
             if(!String.IsNullOrEmpty(txtNumeroUsuario.Text))
             {
                 btnLogin.Enabled = true;
+                if(isTheRestarActive)
+                {
+                    RestarForm();
+                    isTheRestarActive = false;
+                }
             }
             else
             {
                 btnLogin.Enabled = false;
             }
+        }
+
+        private void RestarForm()
+        {
+            btnLogin.Text = "Ingresar";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtNumeroUsuario.Text = "";
+            txtActividad.Text = "";
+            lblStatusInicio.Visible = false;
+            lblVigencia.Text = "";
+            lblVigencia.Visible = false;
+            btnRenovar.Visible = false;
+            imgUser.Image = Resources.no_photo_available_icon_20;
         }
     }
 }

@@ -93,6 +93,16 @@ namespace GymSystemDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coins_40px {
+            get {
+                object obj = ResourceManager.GetObject("coins_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file_explorer_48px {
             get {
                 object obj = ResourceManager.GetObject("file_explorer_48px", resourceCulture);
@@ -153,6 +163,16 @@ namespace GymSystemDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key_color_30px {
+            get {
+                object obj = ResourceManager.GetObject("key_color_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap no_photo_available_icon_20 {
             get {
                 object obj = ResourceManager.GetObject("no-photo-available-icon-20", resourceCulture);
@@ -183,6 +203,16 @@ namespace GymSystemDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap staff_50px {
+            get {
+                object obj = ResourceManager.GetObject("staff_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
@@ -206,6 +236,26 @@ namespace GymSystemDesktop.Properties {
         internal static System.Drawing.Bitmap user_60px {
             get {
                 object obj = ResourceManager.GetObject("user_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_groups_26px {
+            get {
+                object obj = ResourceManager.GetObject("user_groups_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_groups_80px {
+            get {
+                object obj = ResourceManager.GetObject("user_groups_80px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

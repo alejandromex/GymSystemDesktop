@@ -10,5 +10,8 @@
     <Compile Update="Views\Registro.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\Usuariso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

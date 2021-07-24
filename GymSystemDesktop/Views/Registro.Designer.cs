@@ -49,6 +49,7 @@ namespace GymSystemDesktop.Views
             this.btnTomarFoto = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnCancelRegistro = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserRegistro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@ namespace GymSystemDesktop.Views
             this.txtApellidoRegistro.Location = new System.Drawing.Point(219, 128);
             this.txtApellidoRegistro.Name = "txtApellidoRegistro";
             this.txtApellidoRegistro.Size = new System.Drawing.Size(252, 23);
-            this.txtApellidoRegistro.TabIndex = 3;
+            this.txtApellidoRegistro.TabIndex = 2;
             // 
             // label2
             // 
@@ -91,7 +92,7 @@ namespace GymSystemDesktop.Views
             this.txtEdadRegistro.Location = new System.Drawing.Point(219, 165);
             this.txtEdadRegistro.Name = "txtEdadRegistro";
             this.txtEdadRegistro.Size = new System.Drawing.Size(252, 23);
-            this.txtEdadRegistro.TabIndex = 5;
+            this.txtEdadRegistro.TabIndex = 3;
             // 
             // label3
             // 
@@ -108,7 +109,7 @@ namespace GymSystemDesktop.Views
             this.txtMesesRegistro.Location = new System.Drawing.Point(219, 325);
             this.txtMesesRegistro.Name = "txtMesesRegistro";
             this.txtMesesRegistro.Size = new System.Drawing.Size(100, 23);
-            this.txtMesesRegistro.TabIndex = 6;
+            this.txtMesesRegistro.TabIndex = 7;
             this.txtMesesRegistro.TextChanged += new System.EventHandler(this.txtMesesRegistro_TextChanged);
             this.txtMesesRegistro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMesesRegistro_KeyPress);
             // 
@@ -124,11 +125,15 @@ namespace GymSystemDesktop.Views
             // 
             // cmbActividad
             // 
+            this.cmbActividad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbActividad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbActividad.FormattingEnabled = true;
             this.cmbActividad.Location = new System.Drawing.Point(219, 287);
             this.cmbActividad.Name = "cmbActividad";
-            this.cmbActividad.Size = new System.Drawing.Size(252, 23);
-            this.cmbActividad.TabIndex = 8;
+            this.cmbActividad.Size = new System.Drawing.Size(252, 25);
+            this.cmbActividad.Sorted = true;
+            this.cmbActividad.TabIndex = 6;
+            this.cmbActividad.SelectedIndexChanged += new System.EventHandler(this.cmbActividad_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -165,14 +170,14 @@ namespace GymSystemDesktop.Views
             this.txtDireccionRegistro.Location = new System.Drawing.Point(219, 243);
             this.txtDireccionRegistro.Name = "txtDireccionRegistro";
             this.txtDireccionRegistro.Size = new System.Drawing.Size(252, 23);
-            this.txtDireccionRegistro.TabIndex = 12;
+            this.txtDireccionRegistro.TabIndex = 5;
             // 
             // txtCelularRegistro
             // 
             this.txtCelularRegistro.Location = new System.Drawing.Point(219, 203);
             this.txtCelularRegistro.Name = "txtCelularRegistro";
             this.txtCelularRegistro.Size = new System.Drawing.Size(252, 23);
-            this.txtCelularRegistro.TabIndex = 13;
+            this.txtCelularRegistro.TabIndex = 4;
             // 
             // label8
             // 
@@ -202,7 +207,7 @@ namespace GymSystemDesktop.Views
             this.btnSeleccionarFoto.Location = new System.Drawing.Point(612, 354);
             this.btnSeleccionarFoto.Name = "btnSeleccionarFoto";
             this.btnSeleccionarFoto.Size = new System.Drawing.Size(156, 54);
-            this.btnSeleccionarFoto.TabIndex = 16;
+            this.btnSeleccionarFoto.TabIndex = 8;
             this.btnSeleccionarFoto.Text = "Seleccionar Foto";
             this.btnSeleccionarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSeleccionarFoto.UseVisualStyleBackColor = true;
@@ -216,7 +221,7 @@ namespace GymSystemDesktop.Views
             this.btnTomarFoto.Location = new System.Drawing.Point(612, 426);
             this.btnTomarFoto.Name = "btnTomarFoto";
             this.btnTomarFoto.Size = new System.Drawing.Size(156, 54);
-            this.btnTomarFoto.TabIndex = 17;
+            this.btnTomarFoto.TabIndex = 9;
             this.btnTomarFoto.Text = "Tomar Foto";
             this.btnTomarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTomarFoto.UseVisualStyleBackColor = true;
@@ -233,7 +238,7 @@ namespace GymSystemDesktop.Views
             this.btnRegistro.Location = new System.Drawing.Point(147, 385);
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.Size = new System.Drawing.Size(126, 45);
-            this.btnRegistro.TabIndex = 18;
+            this.btnRegistro.TabIndex = 10;
             this.btnRegistro.Text = "Registrar";
             this.btnRegistro.UseVisualStyleBackColor = true;
             this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
@@ -253,12 +258,24 @@ namespace GymSystemDesktop.Views
             this.btnCancelRegistro.TabIndex = 19;
             this.btnCancelRegistro.Text = "Cancelar";
             this.btnCancelRegistro.UseVisualStyleBackColor = true;
+            this.btnCancelRegistro.Click += new System.EventHandler(this.btnCancelRegistro_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTotal.Location = new System.Drawing.Point(325, 319);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(65, 30);
+            this.lblTotal.TabIndex = 20;
+            this.lblTotal.Text = "Total:";
             // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnCancelRegistro);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnTomarFoto);
@@ -309,5 +326,6 @@ namespace GymSystemDesktop.Views
         private System.Windows.Forms.Button btnTomarFoto;
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnCancelRegistro;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

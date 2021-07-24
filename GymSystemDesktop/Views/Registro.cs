@@ -1,9 +1,12 @@
-﻿using GymSystemDesktop.Models;
+﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Models;
+using GymSystemDesktop.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,10 +15,13 @@ namespace GymSystemDesktop.Views
     public partial class Registro : UserControl
     {
         List<Control> FormControls = new List<Control>();
-
+        Dictionary<string, int> PricesActividades = new Dictionary<string, int>();
+        string dirOfPicture = "";
         public Registro()
         {
             InitializeComponent();
+            FillActividadesCombo();
+            cmbActividad.SelectedIndex = 0;
             FormControls.Add(txtNombreRegistro);
             FormControls.Add(txtApellidoRegistro);
             FormControls.Add(txtEdadRegistro);
@@ -46,6 +52,20 @@ namespace GymSystemDesktop.Views
             }
         }
 
+
+        private void SetTotal()
+        {
+
+            if (cmbActividad.Text != "" && txtMesesRegistro.Text != "")
+            {
+                lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
+            }
+            else
+            {
+                lblTotal.Text = "Total: 0";
+            }
+        }
+
         private void txtMesesRegistro_TextChanged(object sender, EventArgs e)
         {
             try
@@ -55,6 +75,8 @@ namespace GymSystemDesktop.Views
                     MessageBox.Show("No se permiten pagos adelantados mayores a 36 meses", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtMesesRegistro.Text = "36";
                 }
+
+                SetTotal();
             }
             catch(Exception ex)
             {
@@ -75,26 +97,27 @@ namespace GymSystemDesktop.Views
                     Celular = txtCelularRegistro.Text,
                     Direccion = txtDireccionRegistro.Text,
                     Edad = int.Parse(txtEdadRegistro.Text),
-                    FechaInicio = DateTime.Now,
-                    FechaFin = DateTime.Now.AddMonths(int.Parse(txtMesesRegistro.Text)),
-                    Llave = TimeSpan.FromMilliseconds(DateTime.Now.Second).ToString(),
-                    PlanRegistrado = cmbActividad.Text
+                    FechaInicio = DateTime.Now.ToString("yyyy-MM-dd"),
+                    FechaFin = DateTime.Now.AddMonths(int.Parse(txtMesesRegistro.Text)).ToString("yyyy-MM-dd"),
+                    Llave = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds().ToString(),
+                    PlanRegistrado = cmbActividad.Text,
+                    Img = dirOfPicture
                 };
 
+                if(dirOfPicture == "")
+                {
+                    MessageBox.Show("Favor de tomar o seleccionar una foto", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-                MessageBox.Show(user.RegistrarUsuario().ToString());
-
-                //if(user.RegistrarUsuario())
-                //{
-                //    MessageBox.Show("Registro exitoso");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Error al registrar al usuario");
-                //}
-
-
-
+                else if(user.RegistrarUsuario())
+                {
+                    MessageBox.Show("Registro exitoso, Tu clave identificadora es: "+user.Llave, "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnCancelRegistro_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Error al registrar al usuario");
+                }
                 
             }
             else
@@ -108,6 +131,60 @@ namespace GymSystemDesktop.Views
 
         private void btnSeleccionarFoto_Click(object sender, EventArgs e)
         {
+            using(OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "(*.png)|*.png|(*.jpg)|*.jpg";
+                openFileDialog.RestoreDirectory = true;
+
+                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+
+                    var fileContent = string.Empty;
+                    var fileStream = openFileDialog.OpenFile();
+                    using(StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+
+                        imgUserRegistro.Image = new Bitmap(filePath);
+                        this.dirOfPicture = filePath;
+                    }
+                }
+            }
+        }
+
+        private void btnCancelRegistro_Click(object sender, EventArgs e)
+        {
+            txtNombreRegistro.Text = "";
+            txtApellidoRegistro.Text = "";
+            txtCelularRegistro.Text = "";
+            txtDireccionRegistro.Text = "";
+            txtEdadRegistro.Text = "";
+            txtMesesRegistro.Text = "";
+            cmbActividad.Text = "";
+            imgUserRegistro.Image = Resources.no_photo_available_icon_20;
+            dirOfPicture = "";
+        }
+
+        private void FillActividadesCombo()
+        {
+            DataTable dt = DbConn.GetInstance().ExecuteQuery("SELECT * FROM Actividades");
+            if (dt.Rows.Count > 0)
+            {
+                foreach(DataRow dr in dt.Rows)
+                {
+                    string nombre = dr["nombre"].ToString();
+                    int precio = int.Parse(dr["precio"].ToString());
+                    cmbActividad.Items.Add(nombre);
+                    PricesActividades[nombre] = precio; 
+                }
+            }
+        }
+
+        private void cmbActividad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetTotal();
 
         }
     }

@@ -22,5 +22,4 @@ C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\bin\Debug\netcor
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.csproj.CopyComplete
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.Views.Registro.resources
-C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.csprojAssemblyReference.cache
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.Views.Usuariso.resources

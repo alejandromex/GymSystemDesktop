@@ -30,6 +30,8 @@ namespace GymSystemDesktop
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelUsuariosSelected = new System.Windows.Forms.Panel();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelRegistrarSelected = new System.Windows.Forms.Panel();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -39,13 +41,13 @@ namespace GymSystemDesktop
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
-            this.panelUsuariosSelected = new System.Windows.Forms.Panel();
-            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +64,32 @@ namespace GymSystemDesktop
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 575);
             this.panel1.TabIndex = 0;
+            // 
+            // panelUsuariosSelected
+            // 
+            this.panelUsuariosSelected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(10)))), ((int)(((byte)(55)))));
+            this.panelUsuariosSelected.Location = new System.Drawing.Point(0, 291);
+            this.panelUsuariosSelected.Name = "panelUsuariosSelected";
+            this.panelUsuariosSelected.Size = new System.Drawing.Size(15, 62);
+            this.panelUsuariosSelected.TabIndex = 5;
+            this.panelUsuariosSelected.Visible = false;
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.Image = global::GymSystemDesktop.Properties.Resources.user_groups_26px;
+            this.btnUsuarios.Location = new System.Drawing.Point(12, 291);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(179, 62);
+            this.btnUsuarios.TabIndex = 6;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // panelRegistrarSelected
             // 
@@ -127,6 +155,7 @@ namespace GymSystemDesktop
             // panelNavBar
             // 
             this.panelNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
+            this.panelNavBar.Controls.Add(this.btnMinimize);
             this.panelNavBar.Controls.Add(this.pictureBox3);
             this.panelNavBar.Controls.Add(this.pictureBox2);
             this.panelNavBar.Controls.Add(this.btnExit);
@@ -139,7 +168,7 @@ namespace GymSystemDesktop
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GymSystemDesktop.Properties.Resources.bell_32px;
-            this.pictureBox3.Location = new System.Drawing.Point(793, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(748, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.TabIndex = 3;
@@ -148,7 +177,7 @@ namespace GymSystemDesktop
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GymSystemDesktop.Properties.Resources.settings_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(839, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(793, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,31 +195,16 @@ namespace GymSystemDesktop
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panelUsuariosSelected
+            // btnMinimize
             // 
-            this.panelUsuariosSelected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(10)))), ((int)(((byte)(55)))));
-            this.panelUsuariosSelected.Location = new System.Drawing.Point(0, 291);
-            this.panelUsuariosSelected.Name = "panelUsuariosSelected";
-            this.panelUsuariosSelected.Size = new System.Drawing.Size(15, 62);
-            this.panelUsuariosSelected.TabIndex = 5;
-            this.panelUsuariosSelected.Visible = false;
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.Image = global::GymSystemDesktop.Properties.Resources.user_groups_26px;
-            this.btnUsuarios.Location = new System.Drawing.Point(12, 291);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(179, 62);
-            this.btnUsuarios.TabIndex = 6;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsuarios.UseVisualStyleBackColor = false;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            this.btnMinimize.Image = global::GymSystemDesktop.Properties.Resources.minimize_window_32px1;
+            this.btnMinimize.Location = new System.Drawing.Point(838, 12);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // Form1
             // 
@@ -209,6 +223,7 @@ namespace GymSystemDesktop
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,6 +242,7 @@ namespace GymSystemDesktop
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Panel panelUsuariosSelected;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.PictureBox btnMinimize;
     }
 }
 

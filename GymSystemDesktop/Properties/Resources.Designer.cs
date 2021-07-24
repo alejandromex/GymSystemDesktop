@@ -173,6 +173,26 @@ namespace GymSystemDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minimize_window_32px {
+            get {
+                object obj = ResourceManager.GetObject("minimize_window_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_window_32px1 {
+            get {
+                object obj = ResourceManager.GetObject("minimize_window_32px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap no_photo_available_icon_20 {
             get {
                 object obj = ResourceManager.GetObject("no-photo-available-icon-20", resourceCulture);

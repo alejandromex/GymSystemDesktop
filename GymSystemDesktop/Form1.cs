@@ -1,4 +1,5 @@
-﻿using GymSystemDesktop.Views;
+﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace GymSystemDesktop
 
         private List<Panel> panelsSelected;
         private List<Control> views;
+        private DbConn conn = DbConn.GetInstance();
         Object lastObjectInScreen = new Object();
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -28,7 +30,7 @@ namespace GymSystemDesktop
         public static extern bool ReleaseCapture();
 
 
-        Point spawnPositionUserControl = new Point(206, 66);
+        Point spawnPositionUserControl = new Point(220, 90);
         
         Home home;
         Registro registro;
@@ -52,6 +54,8 @@ namespace GymSystemDesktop
             home.Visible = true;
 
             lastObjectInScreen = home;
+
+
         }
 
 
@@ -86,6 +90,7 @@ namespace GymSystemDesktop
                 view.Location = spawnPositionUserControl;
                 view.TabIndex = 10;
                 view.Visible = false;
+                view.Size = new Size(1038, 660);
                 Controls.Add(view);
             }
         }
@@ -141,6 +146,7 @@ namespace GymSystemDesktop
             panelUsuariosSelected.Visible = true;
             lastObjectInScreen = usuarios;
             usuarios.Visible = true;
+            usuarios.FillUsersTable();
 
 
         }

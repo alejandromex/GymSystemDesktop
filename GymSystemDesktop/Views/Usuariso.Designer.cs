@@ -58,31 +58,37 @@ namespace GymSystemDesktop.Views
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.GridColor = System.Drawing.Color.White;
-            this.dgvUsers.Location = new System.Drawing.Point(16, 46);
+            this.dgvUsers.Location = new System.Drawing.Point(23, 56);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 25;
-            this.dgvUsers.Size = new System.Drawing.Size(878, 437);
+            this.dgvUsers.Size = new System.Drawing.Size(1003, 583);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
             this.dgvUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUsers_CellFormatting);
             // 
             // txtBuscarUsuario
             // 
             this.txtBuscarUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtBuscarUsuario.Location = new System.Drawing.Point(302, 7);
+            this.txtBuscarUsuario.Location = new System.Drawing.Point(345, 9);
+            this.txtBuscarUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuscarUsuario.Name = "txtBuscarUsuario";
-            this.txtBuscarUsuario.Size = new System.Drawing.Size(292, 33);
+            this.txtBuscarUsuario.Size = new System.Drawing.Size(333, 39);
             this.txtBuscarUsuario.TabIndex = 1;
             this.txtBuscarUsuario.TextChanged += new System.EventHandler(this.txtBuscarUsuario_TextChanged);
             // 
             // Usuariso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.txtBuscarUsuario);
             this.Controls.Add(this.dgvUsers);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Usuariso";
-            this.Size = new System.Drawing.Size(908, 495);
+            this.Size = new System.Drawing.Size(1038, 660);
             this.Load += new System.EventHandler(this.Usuariso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

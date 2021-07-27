@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -71,7 +72,10 @@ namespace GymSystemDesktop.Views
                         txtNombre.Text = nombre;
                         txtApellido.Text = apellido;
                         txtActividad.Text = actividad;
-                        imgUser.Image = new Bitmap(user["img"].ToString());
+                        if(File.Exists(user["img"].ToString()))
+                        {
+                            imgUser.Image = new Bitmap(user["img"].ToString());
+                        }
 
                         isTheRestarActive = true;
                         btnLogin.Text = "Reiniciar";

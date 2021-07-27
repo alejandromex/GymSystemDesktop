@@ -1,4 +1,5 @@
 ﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Helpers;
 using GymSystemDesktop.Views;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,7 @@ namespace GymSystemDesktop
                 view.TabIndex = 10;
                 view.Visible = false;
                 view.Size = new Size(1038, 660);
+                view.BackColor = Color.Transparent;
                 Controls.Add(view);
             }
         }
@@ -171,16 +173,16 @@ namespace GymSystemDesktop
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void SetColorsDesing()
         {
             DataTable colors = conn.ExecuteQuery("SELECT * FROM Diseño");
             int R, G, B;
-            if(colors.Rows.Count > 0)
+            if (colors.Rows.Count > 0)
             {
                 DataRow colorRow = colors.Rows[0];
-                foreach(DataColumn colorsColumn in colors.Columns)
+                foreach (DataColumn colorsColumn in colors.Columns)
                 {
-                    if(colorsColumn.ColumnName.Contains("Color"))
+                    if (colorsColumn.ColumnName.Contains("Color"))
                     {
                         string[] colorsSplit = colorRow[colorsColumn].ToString().Split(",");
 
@@ -191,30 +193,53 @@ namespace GymSystemDesktop
                         if (colorsColumn.ColumnName == "Color1")
                         {
                             SideBar.BackColor = Color.FromArgb(255, R, G, B);
+                            GlobalVariables.rSidebar = R;
+                            GlobalVariables.gSidebar = G;
+                            GlobalVariables.bSidebar = B;
+
+                            btnHome.BackColor = Color.FromArgb(255, R, G, B);
+                            btnRegistrar.BackColor = Color.FromArgb(255, R, G, B);
+                            btnUsuarios.BackColor = Color.FromArgb(255, R, G, B);
                         }
 
-                        if(colorsColumn.ColumnName == "Color2")
+                        if (colorsColumn.ColumnName == "Color2")
                         {
                             NavbarDecoration.BackColor = Color.FromArgb(255, R, G, B);
-                            foreach(Control panelS in panelsSelected)
+                            foreach (Control panelS in panelsSelected)
                             {
                                 panelS.BackColor = Color.FromArgb(255, R, G, B);
                             }
+
+                            GlobalVariables.rDecoration = R;
+                            GlobalVariables.bDecoration = B;
+                            GlobalVariables.gDecoration = G;
                         }
 
-                        if(colorsColumn.ColumnName == "Color3")
+                        if (colorsColumn.ColumnName == "Color3")
                         {
                             panelNavBar.BackColor = Color.FromArgb(255, R, G, B);
+
+                            GlobalVariables.rMenuTop = R;
+                            GlobalVariables.bMenuTop = B;
+                            GlobalVariables.gMenuTop = G;
                         }
 
-                        if(colorsColumn.ColumnName == "Color4")
+                        if (colorsColumn.ColumnName == "Color4")
                         {
-                            this.BackColor = Color.FromArgb(255, R, G, B); 
+                            this.BackColor = Color.FromArgb(255, R, G, B);
+                            GlobalVariables.rFondo = R;
+                            GlobalVariables.bFondo = B;
+                            GlobalVariables.gFondo = G;
                         }
                     }
 
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SetColorsDesing();
         }
     }
 }

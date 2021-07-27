@@ -7,7 +7,16 @@
     <Compile Update="Views\Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\InformationUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Registro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SettingsOptions\Diseño.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Usuariso.cs">

@@ -1,4 +1,5 @@
-﻿using GymSystemDesktop.Views;
+﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,12 +13,13 @@ using System.Windows.Forms;
 
 namespace GymSystemDesktop
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-
         private List<Panel> panelsSelected;
         private List<Control> views;
+        private DbConn conn = DbConn.GetInstance();
         Object lastObjectInScreen = new Object();
+
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -28,13 +30,13 @@ namespace GymSystemDesktop
         public static extern bool ReleaseCapture();
 
 
-        Point spawnPositionUserControl = new Point(206, 66);
+        Point spawnPositionUserControl = new Point(220, 90);
         
         Home home;
         Registro registro;
         Usuariso usuarios;
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -52,6 +54,8 @@ namespace GymSystemDesktop
             home.Visible = true;
 
             lastObjectInScreen = home;
+
+
         }
 
 
@@ -86,6 +90,7 @@ namespace GymSystemDesktop
                 view.Location = spawnPositionUserControl;
                 view.TabIndex = 10;
                 view.Visible = false;
+                view.Size = new Size(1038, 660);
                 Controls.Add(view);
             }
         }
@@ -117,20 +122,15 @@ namespace GymSystemDesktop
             panelHomeSelected.Visible = true;
             lastObjectInScreen = home;
             home.Visible = true;
-
-
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             HideSelectedPanel();
             ((Control)(lastObjectInScreen)).Visible = false;
-
             panelRegistrarSelected.Visible = true;
             lastObjectInScreen = registro;
             registro.Visible = true;
-
-            
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -141,6 +141,7 @@ namespace GymSystemDesktop
             panelUsuariosSelected.Visible = true;
             lastObjectInScreen = usuarios;
             usuarios.Visible = true;
+            usuarios.FillUsersTable();
 
 
         }
@@ -148,6 +149,72 @@ namespace GymSystemDesktop
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            FormCollection forms = Application.OpenForms;
+            bool openForm = true;
+            foreach(Form f in forms)
+            {
+                
+                if(f.Name == "Settings")
+                {
+                    openForm = false;
+                }
+            }
+
+            if(openForm)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DataTable colors = conn.ExecuteQuery("SELECT * FROM Diseño");
+            int R, G, B;
+            if(colors.Rows.Count > 0)
+            {
+                DataRow colorRow = colors.Rows[0];
+                foreach(DataColumn colorsColumn in colors.Columns)
+                {
+                    if(colorsColumn.ColumnName.Contains("Color"))
+                    {
+                        string[] colorsSplit = colorRow[colorsColumn].ToString().Split(",");
+
+                        R = int.Parse(colorsSplit[0]);
+                        G = int.Parse(colorsSplit[1]);
+                        B = int.Parse(colorsSplit[2]);
+
+                        if (colorsColumn.ColumnName == "Color1")
+                        {
+                            SideBar.BackColor = Color.FromArgb(255, R, G, B);
+                        }
+
+                        if(colorsColumn.ColumnName == "Color2")
+                        {
+                            NavbarDecoration.BackColor = Color.FromArgb(255, R, G, B);
+                            foreach(Control panelS in panelsSelected)
+                            {
+                                panelS.BackColor = Color.FromArgb(255, R, G, B);
+                            }
+                        }
+
+                        if(colorsColumn.ColumnName == "Color3")
+                        {
+                            panelNavBar.BackColor = Color.FromArgb(255, R, G, B);
+                        }
+
+                        if(colorsColumn.ColumnName == "Color4")
+                        {
+                            this.BackColor = Color.FromArgb(255, R, G, B); 
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

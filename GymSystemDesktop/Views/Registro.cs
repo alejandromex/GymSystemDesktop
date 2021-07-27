@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -140,16 +139,9 @@ namespace GymSystemDesktop.Views
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = openFileDialog.FileName;
-
-                    var fileContent = string.Empty;
-                    var fileStream = openFileDialog.OpenFile();
-                    using(StreamReader reader = new StreamReader(fileStream))
-                    {
-                        fileContent = reader.ReadToEnd();
-
-                        imgUserRegistro.Image = new Bitmap(filePath);
-                        this.dirOfPicture = filePath;
-                    }
+                    imgUserRegistro.Image = new Bitmap(filePath);
+                    this.dirOfPicture = filePath;
+                    
                 }
             }
         }

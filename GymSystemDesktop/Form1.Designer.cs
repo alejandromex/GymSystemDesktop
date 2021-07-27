@@ -1,7 +1,7 @@
 ﻿
 namespace GymSystemDesktop
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,41 +29,41 @@ namespace GymSystemDesktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.SideBar = new System.Windows.Forms.Panel();
             this.panelUsuariosSelected = new System.Windows.Forms.Panel();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelRegistrarSelected = new System.Windows.Forms.Panel();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panelHomeSelected = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.NavbarDecoration = new System.Windows.Forms.Panel();
             this.panelNavBar = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.PictureBox();
+            this.SideBar.SuspendLayout();
             this.panelNavBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // SideBar
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.panelUsuariosSelected);
-            this.panel1.Controls.Add(this.btnUsuarios);
-            this.panel1.Controls.Add(this.panelRegistrarSelected);
-            this.panel1.Controls.Add(this.btnRegistrar);
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Controls.Add(this.panelHomeSelected);
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 575);
-            this.panel1.TabIndex = 0;
+            this.SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.SideBar.Controls.Add(this.panelUsuariosSelected);
+            this.SideBar.Controls.Add(this.btnUsuarios);
+            this.SideBar.Controls.Add(this.panelRegistrarSelected);
+            this.SideBar.Controls.Add(this.btnRegistrar);
+            this.SideBar.Controls.Add(this.btnHome);
+            this.SideBar.Controls.Add(this.panelHomeSelected);
+            this.SideBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.SideBar.Location = new System.Drawing.Point(0, 0);
+            this.SideBar.Name = "SideBar";
+            this.SideBar.Size = new System.Drawing.Size(200, 621);
+            this.SideBar.TabIndex = 0;
             // 
             // panelUsuariosSelected
             // 
@@ -144,61 +144,31 @@ namespace GymSystemDesktop
             this.panelHomeSelected.Size = new System.Drawing.Size(15, 62);
             this.panelHomeSelected.TabIndex = 3;
             // 
-            // panel2
+            // NavbarDecoration
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(10)))), ((int)(((byte)(55)))));
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(942, 10);
-            this.panel2.TabIndex = 1;
+            this.NavbarDecoration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(10)))), ((int)(((byte)(55)))));
+            this.NavbarDecoration.Location = new System.Drawing.Point(200, 0);
+            this.NavbarDecoration.Name = "NavbarDecoration";
+            this.NavbarDecoration.Size = new System.Drawing.Size(954, 10);
+            this.NavbarDecoration.TabIndex = 1;
             // 
             // panelNavBar
             // 
             this.panelNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
             this.panelNavBar.Controls.Add(this.btnMinimize);
             this.panelNavBar.Controls.Add(this.pictureBox3);
-            this.panelNavBar.Controls.Add(this.pictureBox2);
+            this.panelNavBar.Controls.Add(this.btnSettings);
             this.panelNavBar.Controls.Add(this.btnExit);
             this.panelNavBar.Location = new System.Drawing.Point(200, 10);
             this.panelNavBar.Name = "panelNavBar";
-            this.panelNavBar.Size = new System.Drawing.Size(941, 50);
+            this.panelNavBar.Size = new System.Drawing.Size(958, 50);
             this.panelNavBar.TabIndex = 2;
             this.panelNavBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelNavBar_MouseDown);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GymSystemDesktop.Properties.Resources.bell_32px;
-            this.pictureBox3.Location = new System.Drawing.Point(748, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GymSystemDesktop.Properties.Resources.settings_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(793, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Image = global::GymSystemDesktop.Properties.Resources.power_off_button_50px;
-            this.btnExit.Location = new System.Drawing.Point(884, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(30, 30);
-            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnExit.TabIndex = 0;
-            this.btnExit.TabStop = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnMinimize
             // 
             this.btnMinimize.Image = global::GymSystemDesktop.Properties.Resources.minimize_window_32px1;
-            this.btnMinimize.Location = new System.Drawing.Point(838, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(868, 12);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -206,36 +176,68 @@ namespace GymSystemDesktop
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // Form1
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GymSystemDesktop.Properties.Resources.bell_32px;
+            this.pictureBox3.Location = new System.Drawing.Point(778, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Image = global::GymSystemDesktop.Properties.Resources.settings_32px;
+            this.btnSettings.Location = new System.Drawing.Point(823, 12);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
+            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettings.TabIndex = 3;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Image = global::GymSystemDesktop.Properties.Resources.power_off_button_50px;
+            this.btnExit.Location = new System.Drawing.Point(913, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(30, 30);
+            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnExit.TabIndex = 0;
+            this.btnExit.TabStop = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1126, 573);
+            this.ClientSize = new System.Drawing.Size(1155, 615);
             this.Controls.Add(this.panelNavBar);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Controls.Add(this.NavbarDecoration);
+            this.Controls.Add(this.SideBar);
+            this.Name = "MainWindow";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.panel1.ResumeLayout(false);
+            this.SideBar.ResumeLayout(false);
             this.panelNavBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel SideBar;
+        private System.Windows.Forms.Panel NavbarDecoration;
         private System.Windows.Forms.Panel panelNavBar;
         private System.Windows.Forms.PictureBox btnExit;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.Panel panelHomeSelected;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panelRegistrarSelected;

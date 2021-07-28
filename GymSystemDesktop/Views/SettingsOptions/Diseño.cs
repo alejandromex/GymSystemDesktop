@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -197,6 +198,23 @@ namespace GymSystemDesktop.Views.SettingsOptions
             }
         }
 
+        private void btnImagenSucursal_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "(*.png)|*.png|(*.jpg)|*.jpg";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    imgDSucursal.Image = new Bitmap(filePath);
+                    GlobalVariables.UserConnected["img"] = filePath;
+                }
+            }
+        }
+
         private void ChangeColorTopMenu()
         {
             try
@@ -317,6 +335,12 @@ namespace GymSystemDesktop.Views.SettingsOptions
         private void Diseño_Load(object sender, EventArgs e)
         {
             SetColors();
+            txtNombreSucursal.Text = GlobalVariables.UserConnected["nombre"].ToString();
+
+            if(File.Exists(GlobalVariables.UserConnected["img"].ToString()))
+            {
+                imgDSucursal.Image = new Bitmap(GlobalVariables.UserConnected["img"].ToString());
+            }
         }
 
         private void btnColorDecoracion_Click(object sender, EventArgs e)
@@ -337,10 +361,6 @@ namespace GymSystemDesktop.Views.SettingsOptions
 
         private void SetColors()
         {
-            txtB.Text = GlobalVariables.bSidebar.ToString();
-            txtG.Text = GlobalVariables.gSidebar.ToString();
-            txtR.Text = GlobalVariables.rSidebar.ToString();
-
             txtBDecoracion.Text = GlobalVariables.bDecoration.ToString();
             txtGDecoracion.Text = GlobalVariables.gDecoration.ToString();
             txtRDecoracion.Text = GlobalVariables.rDecoration.ToString();
@@ -352,6 +372,10 @@ namespace GymSystemDesktop.Views.SettingsOptions
             txtBFondo.Text = GlobalVariables.bFondo.ToString();
             txtGFondo.Text = GlobalVariables.gFondo.ToString();
             txtRFondo.Text = GlobalVariables.rFondo.ToString();
+
+            txtB.Text = GlobalVariables.bSidebar.ToString();
+            txtG.Text = GlobalVariables.gSidebar.ToString();
+            txtR.Text = GlobalVariables.rSidebar.ToString();
 
             textos.Add(txtBDecoracion);
             textos.Add(txtRDecoracion);
@@ -370,9 +394,9 @@ namespace GymSystemDesktop.Views.SettingsOptions
             textos.Add(txtR);
 
             ChangeColorText();
-            ChanceColorTextDecoration();
             ChangeColorFondo();
             ChangeColorTopMenu();
+            ChanceColorTextDecoration();
 
         }
 
@@ -391,6 +415,23 @@ namespace GymSystemDesktop.Views.SettingsOptions
 
             string query = $"UPDATE Diseño SET Color1 = '{r},{g},{b}', Color2 = '{rDecoration},{gDecoration},{bDecoration}', Color3 = '{rMenuTop},{gMenuTop},{bMenuTop}', Color4 = '{rFondo},{gFondo},{bFondo}' WHERE id = 1";
             conn.ExecuteQuery(query);
+
+            if(txtNombreSucursal.Text != "" && GlobalVariables.UserConnected["img"].ToString() != "")
+            {
+                GlobalVariables.UserConnected["nombre"] = txtNombreSucursal.Text;
+                query = $"UPDATE Sucursal SET nombre = '{GlobalVariables.UserConnected["nombre"]}', img = '{GlobalVariables.UserConnected["img"]}' where id = {GlobalVariables.UserIdConnected};";
+                conn.ExecuteQuery(query);
+
+                MessageBox.Show("Los cambios se veran reflados al reiniciar la aplicacion", "Cambios Realizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("El nombre e imagen no pueden estar vacios");
+            }
+
+
+
+            
 
             
         }

@@ -38,21 +38,25 @@ namespace GymSystemDesktop
             this.panelHomeSelected = new System.Windows.Forms.Panel();
             this.NavbarDecoration = new System.Windows.Forms.Panel();
             this.panelNavBar = new System.Windows.Forms.Panel();
+            this.lblNombreSucursal = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
+            this.imgLogoMain = new System.Windows.Forms.PictureBox();
             this.SideBar.SuspendLayout();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBar
             // 
             this.SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.SideBar.Controls.Add(this.imgLogoMain);
             this.SideBar.Controls.Add(this.panelUsuariosSelected);
             this.SideBar.Controls.Add(this.btnUsuarios);
             this.SideBar.Controls.Add(this.panelRegistrarSelected);
@@ -155,6 +159,7 @@ namespace GymSystemDesktop
             // panelNavBar
             // 
             this.panelNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
+            this.panelNavBar.Controls.Add(this.lblNombreSucursal);
             this.panelNavBar.Controls.Add(this.btnMinimize);
             this.panelNavBar.Controls.Add(this.pictureBox3);
             this.panelNavBar.Controls.Add(this.btnSettings);
@@ -163,7 +168,18 @@ namespace GymSystemDesktop
             this.panelNavBar.Name = "panelNavBar";
             this.panelNavBar.Size = new System.Drawing.Size(958, 50);
             this.panelNavBar.TabIndex = 2;
+            this.panelNavBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNavBar_Paint);
             this.panelNavBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelNavBar_MouseDown);
+            // 
+            // lblNombreSucursal
+            // 
+            this.lblNombreSucursal.AutoSize = true;
+            this.lblNombreSucursal.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNombreSucursal.Location = new System.Drawing.Point(0, 3);
+            this.lblNombreSucursal.Name = "lblNombreSucursal";
+            this.lblNombreSucursal.Size = new System.Drawing.Size(100, 40);
+            this.lblNombreSucursal.TabIndex = 5;
+            this.lblNombreSucursal.Text = "label1";
             // 
             // btnMinimize
             // 
@@ -207,6 +223,15 @@ namespace GymSystemDesktop
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // imgLogoMain
+            // 
+            this.imgLogoMain.Location = new System.Drawing.Point(0, 0);
+            this.imgLogoMain.Name = "imgLogoMain";
+            this.imgLogoMain.Size = new System.Drawing.Size(200, 129);
+            this.imgLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogoMain.TabIndex = 7;
+            this.imgLogoMain.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -218,14 +243,17 @@ namespace GymSystemDesktop
             this.Controls.Add(this.SideBar);
             this.Name = "MainWindow";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.SideBar.ResumeLayout(false);
             this.panelNavBar.ResumeLayout(false);
+            this.panelNavBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +273,8 @@ namespace GymSystemDesktop
         private System.Windows.Forms.Panel panelUsuariosSelected;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.PictureBox btnMinimize;
+        private System.Windows.Forms.Label lblNombreSucursal;
+        private System.Windows.Forms.PictureBox imgLogoMain;
     }
 }
 

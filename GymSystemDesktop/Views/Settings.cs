@@ -58,5 +58,10 @@ namespace GymSystemDesktop.Views
             }
 
         }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

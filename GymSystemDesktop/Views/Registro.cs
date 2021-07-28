@@ -16,6 +16,8 @@ namespace GymSystemDesktop.Views
         List<Control> FormControls = new List<Control>();
         Dictionary<string, int> PricesActividades = new Dictionary<string, int>();
         string dirOfPicture = "";
+
+        DbConn conn;
         public Registro()
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace GymSystemDesktop.Views
             FormControls.Add(txtDireccionRegistro);
             FormControls.Add(txtMesesRegistro);
             FormControls.Add(cmbActividad);
+
+            conn = DbConn.GetInstance();
         }
 
 
@@ -111,6 +115,18 @@ namespace GymSystemDesktop.Views
                 else if(user.RegistrarUsuario())
                 {
                     MessageBox.Show("Registro exitoso, Tu clave identificadora es: "+user.Llave, "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    string movimiento = "Registro";
+                    string tipo = "Incremento";
+                    string comentarios = $"Se realizo registro de {user.Nombre} a la actividad {user.PlanRegistrado}";
+                    string monto = (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
+                    string fecha = user.FechaInicio;
+                    string atendio = "administrador";
+
+                    string query = $"INSERT INTO movimientos values('{movimiento}', '{tipo}', '{comentarios}', {monto}, '{fecha}', '{atendio}');";
+                    conn.ExecuteQuery(query);
+                    
+
                     btnCancelRegistro_Click(sender, e);
                 }
                 else

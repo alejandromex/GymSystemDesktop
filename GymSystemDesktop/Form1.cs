@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -239,7 +240,22 @@ namespace GymSystemDesktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblNombreSucursal.Text = GlobalVariables.UserConnected["nombre"].ToString();
+            if(File.Exists(GlobalVariables.UserConnected["img"].ToString()))
+            {
+                imgLogoMain.Image = new Bitmap(GlobalVariables.UserConnected["img"].ToString());
+            }
             SetColorsDesing();
+        }
+
+        private void panelNavBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

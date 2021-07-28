@@ -69,9 +69,9 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.txtColorFondo = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombreSucursal = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgDSucursal = new System.Windows.Forms.PictureBox();
             this.btnImagenSucursal = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDSucursal)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSideBar
@@ -146,7 +146,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
             // 
             // btnSaveDesing
             // 
-            this.btnSaveDesing.Location = new System.Drawing.Point(543, 424);
+            this.btnSaveDesing.Location = new System.Drawing.Point(534, 434);
             this.btnSaveDesing.Name = "btnSaveDesing";
             this.btnSaveDesing.Size = new System.Drawing.Size(105, 41);
             this.btnSaveDesing.TabIndex = 8;
@@ -413,15 +413,15 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.txtNombreSucursal.Size = new System.Drawing.Size(380, 23);
             this.txtNombreSucursal.TabIndex = 38;
             // 
-            // pictureBox1
+            // imgDSucursal
             // 
-            this.pictureBox1.Image = global::GymSystemDesktop.Properties.Resources.cameras_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 268);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 170);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 39;
-            this.pictureBox1.TabStop = false;
+            this.imgDSucursal.Image = global::GymSystemDesktop.Properties.Resources.cameras_48px;
+            this.imgDSucursal.Location = new System.Drawing.Point(23, 268);
+            this.imgDSucursal.Name = "imgDSucursal";
+            this.imgDSucursal.Size = new System.Drawing.Size(175, 170);
+            this.imgDSucursal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgDSucursal.TabIndex = 39;
+            this.imgDSucursal.TabStop = false;
             // 
             // btnImagenSucursal
             // 
@@ -431,6 +431,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.btnImagenSucursal.TabIndex = 40;
             this.btnImagenSucursal.Text = "Subir Imagen";
             this.btnImagenSucursal.UseVisualStyleBackColor = true;
+            this.btnImagenSucursal.Click += new System.EventHandler(this.btnImagenSucursal_Click);
             // 
             // Diseño
             // 
@@ -438,7 +439,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Controls.Add(this.btnImagenSucursal);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imgDSucursal);
             this.Controls.Add(this.txtNombreSucursal);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label13);
@@ -481,7 +482,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.Name = "Diseño";
             this.Size = new System.Drawing.Size(681, 490);
             this.Load += new System.EventHandler(this.Diseño_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +530,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
         private System.Windows.Forms.TextBox txtColorFondo;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtNombreSucursal;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgDSucursal;
         private System.Windows.Forms.Button btnImagenSucursal;
     }
 }

@@ -17,11 +17,8 @@ namespace GymSystemDesktop
 {
     public partial class MainWindow : Form
     {
-        private List<Panel> panelsSelected;
-        private List<Control> views;
         private DbConn conn = DbConn.GetInstance();
         Object lastObjectInScreen = new Object();
-
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -33,31 +30,10 @@ namespace GymSystemDesktop
 
 
         Point spawnPositionUserControl = new Point(220, 90);
-        
-        Home home;
-        Registro registro;
-        Usuariso usuarios;
-
         public MainWindow()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
-            panelsSelected = new List<Panel>();
-            views = new List<Control>();
-
-            registro = new Registro();
-            home = new Home();
-            usuarios = new Usuariso();
-
-            FillPanelSelected();
-            FillViews();
-
-            home.Visible = true;
-
-            lastObjectInScreen = home;
-
-
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
 
@@ -74,38 +50,6 @@ namespace GymSystemDesktop
             }
         }
 
-        private void FillPanelSelected()
-        {
-            panelsSelected.Add(panelRegistrarSelected);
-            panelsSelected.Add(panelHomeSelected);
-            panelsSelected.Add(panelUsuariosSelected);
-        }
-
-        private void FillViews()
-        {
-            views.Add(home);
-            views.Add(registro);
-            views.Add(usuarios);
-
-            foreach(Control view in views)
-            {
-                view.Location = spawnPositionUserControl;
-                view.TabIndex = 10;
-                view.Visible = false;
-                view.Size = new Size(1038, 660);
-                view.BackColor = Color.Transparent;
-                Controls.Add(view);
-            }
-        }
-
-        private void HideSelectedPanel()
-        {
-            foreach(Panel panel in panelsSelected)
-            {
-                panel.Visible = false;
-            }
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -118,35 +62,32 @@ namespace GymSystemDesktop
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            HideSelectedPanel();
-
-            ((Control)(lastObjectInScreen)).Visible = false;
-
-            panelHomeSelected.Visible = true;
+            Controls.Remove((Control)lastObjectInScreen);
+            Home home = new Home();
             lastObjectInScreen = home;
-            home.Visible = true;
+            home.Location = spawnPositionUserControl;
+            Controls.Add(home);
+            panelHomeSelected.Location = new Point(0, btnHome.Location.Y);
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            HideSelectedPanel();
-            ((Control)(lastObjectInScreen)).Visible = false;
-            panelRegistrarSelected.Visible = true;
+            Controls.Remove((Control)lastObjectInScreen);
+            Registro registro = new Registro();
             lastObjectInScreen = registro;
-            registro.Visible = true;
+            registro.Location = spawnPositionUserControl;
+            Controls.Add(registro);
+            panelHomeSelected.Location = new Point(0, btnRegistrar.Location.Y);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            HideSelectedPanel();
-            ((Control)lastObjectInScreen).Visible = false;
-
-            panelUsuariosSelected.Visible = true;
-            lastObjectInScreen = usuarios;
-            usuarios.Visible = true;
-            usuarios.FillUsersTable();
-
-
+            Controls.Remove((Control)lastObjectInScreen);
+            Usuariso usuariso = new Usuariso();
+            lastObjectInScreen = usuariso;
+            usuariso.Location = spawnPositionUserControl;
+            Controls.Add(usuariso);
+            panelHomeSelected.Location = new Point(0, btnUsuarios.Location.Y);
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -206,10 +147,7 @@ namespace GymSystemDesktop
                         if (colorsColumn.ColumnName == "Color2")
                         {
                             NavbarDecoration.BackColor = Color.FromArgb(255, R, G, B);
-                            foreach (Control panelS in panelsSelected)
-                            {
-                                panelS.BackColor = Color.FromArgb(255, R, G, B);
-                            }
+                            panelHomeSelected.BackColor = Color.FromArgb(255, R, G, B); 
 
                             GlobalVariables.rDecoration = R;
                             GlobalVariables.bDecoration = B;
@@ -240,6 +178,12 @@ namespace GymSystemDesktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Home home = new Home();
+            home.Location = spawnPositionUserControl;
+            lastObjectInScreen = home;
+            panelHomeSelected.Location = new Point(0,btnHome.Location.Y);
+            Controls.Add(home);
+
             lblNombreSucursal.Text = GlobalVariables.UserConnected["nombre"].ToString();
             if(File.Exists(GlobalVariables.UserConnected["img"].ToString()))
             {

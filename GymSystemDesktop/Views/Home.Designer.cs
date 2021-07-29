@@ -195,7 +195,7 @@ namespace GymSystemDesktop.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnRenovar);
             this.Controls.Add(this.lblStatusInicio);
             this.Controls.Add(this.panel1);
@@ -204,6 +204,7 @@ namespace GymSystemDesktop.Views
             this.Controls.Add(this.imgUser);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(908, 495);
+            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgUser)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

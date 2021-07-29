@@ -1,4 +1,5 @@
 ﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Helpers;
 using GymSystemDesktop.Properties;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace GymSystemDesktop.Views
                 {
                     lblStatusInicio.Visible = true;
                     string llave = txtNumeroUsuario.Text;
-                    DataTable userTable = sql.ExecuteQuery($"spSELECT_GetUserByClave {llave}");
+                    DataTable userTable = sql.ExecuteQuery($"spSELECT_GetUserByClave {llave}, {GlobalVariables.UserIdConnected}");
                     if(userTable.Rows.Count > 0)
                     {
                         DataRow user = userTable.Rows[0];
@@ -127,6 +128,11 @@ namespace GymSystemDesktop.Views
             lblVigencia.Visible = false;
             btnRenovar.Visible = false;
             imgUser.Image = Resources.no_photo_available_icon_20;
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

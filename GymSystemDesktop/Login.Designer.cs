@@ -36,12 +36,15 @@ namespace GymSystemDesktop
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnExitApp = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitApp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(94)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.btnExitApp);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -106,6 +109,17 @@ namespace GymSystemDesktop
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnExitApp
+            // 
+            this.btnExitApp.Image = global::GymSystemDesktop.Properties.Resources.delete_black_50px;
+            this.btnExitApp.Location = new System.Drawing.Point(373, 12);
+            this.btnExitApp.Name = "btnExitApp";
+            this.btnExitApp.Size = new System.Drawing.Size(32, 30);
+            this.btnExitApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnExitApp.TabIndex = 1;
+            this.btnExitApp.TabStop = false;
+            this.btnExitApp.Click += new System.EventHandler(this.btnExitApp_Click);
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -123,6 +137,7 @@ namespace GymSystemDesktop
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +152,6 @@ namespace GymSystemDesktop
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox btnExitApp;
     }
 }

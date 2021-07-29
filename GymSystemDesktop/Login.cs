@@ -79,5 +79,10 @@ namespace GymSystemDesktop
                 }
             }
         }
+
+        private void btnExitApp_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

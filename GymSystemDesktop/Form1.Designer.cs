@@ -30,6 +30,7 @@ namespace GymSystemDesktop
         private void InitializeComponent()
         {
             this.SideBar = new System.Windows.Forms.Panel();
+            this.imgLogoMain = new System.Windows.Forms.PictureBox();
             this.panelUsuariosSelected = new System.Windows.Forms.Panel();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelRegistrarSelected = new System.Windows.Forms.Panel();
@@ -43,14 +44,13 @@ namespace GymSystemDesktop
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
-            this.imgLogoMain = new System.Windows.Forms.PictureBox();
             this.SideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).BeginInit();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).BeginInit();
             this.SuspendLayout();
             // 
             // SideBar
@@ -68,6 +68,15 @@ namespace GymSystemDesktop
             this.SideBar.Name = "SideBar";
             this.SideBar.Size = new System.Drawing.Size(200, 621);
             this.SideBar.TabIndex = 0;
+            // 
+            // imgLogoMain
+            // 
+            this.imgLogoMain.Location = new System.Drawing.Point(0, 0);
+            this.imgLogoMain.Name = "imgLogoMain";
+            this.imgLogoMain.Size = new System.Drawing.Size(200, 129);
+            this.imgLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogoMain.TabIndex = 7;
+            this.imgLogoMain.TabStop = false;
             // 
             // panelUsuariosSelected
             // 
@@ -223,15 +232,6 @@ namespace GymSystemDesktop
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // imgLogoMain
-            // 
-            this.imgLogoMain.Location = new System.Drawing.Point(0, 0);
-            this.imgLogoMain.Name = "imgLogoMain";
-            this.imgLogoMain.Size = new System.Drawing.Size(200, 129);
-            this.imgLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLogoMain.TabIndex = 7;
-            this.imgLogoMain.TabStop = false;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -247,13 +247,13 @@ namespace GymSystemDesktop
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.SideBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).EndInit();
             this.panelNavBar.ResumeLayout(false);
             this.panelNavBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogoMain)).EndInit();
             this.ResumeLayout(false);
 
         }

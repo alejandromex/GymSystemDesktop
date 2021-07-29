@@ -413,7 +413,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
                 }
             }
 
-            string query = $"UPDATE Diseño SET Color1 = '{r},{g},{b}', Color2 = '{rDecoration},{gDecoration},{bDecoration}', Color3 = '{rMenuTop},{gMenuTop},{bMenuTop}', Color4 = '{rFondo},{gFondo},{bFondo}' WHERE id = 1";
+            string query = $"UPDATE Diseño SET Color1 = '{r},{g},{b}', Color2 = '{rDecoration},{gDecoration},{bDecoration}', Color3 = '{rMenuTop},{gMenuTop},{bMenuTop}', Color4 = '{rFondo},{gFondo},{bFondo}' WHERE id = 1 and idsucursal = {GlobalVariables.UserIdConnected}";
             conn.ExecuteQuery(query);
 
             if(txtNombreSucursal.Text != "" && GlobalVariables.UserConnected["img"].ToString() != "")

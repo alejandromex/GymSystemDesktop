@@ -1,4 +1,5 @@
 ﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Helpers;
 using GymSystemDesktop.Models;
 using GymSystemDesktop.Properties;
 using System;
@@ -22,7 +23,14 @@ namespace GymSystemDesktop.Views
         {
             InitializeComponent();
             FillActividadesCombo();
-            cmbActividad.SelectedIndex = 0;
+            if(cmbActividad.Items.Count == 0)
+            {
+                MessageBox.Show("Asigna planes en el boton de configuraciones");
+            }
+            else
+            {
+                cmbActividad.SelectedIndex = 0;
+            }
             FormControls.Add(txtNombreRegistro);
             FormControls.Add(txtApellidoRegistro);
             FormControls.Add(txtEdadRegistro);
@@ -123,7 +131,7 @@ namespace GymSystemDesktop.Views
                     string fecha = user.FechaInicio;
                     string atendio = "administrador";
 
-                    string query = $"INSERT INTO movimientos values('{movimiento}', '{tipo}', '{comentarios}', {monto}, '{fecha}', '{atendio}');";
+                    string query = $"INSERT INTO movimientos values('{movimiento}', '{tipo}', '{comentarios}', {monto}, '{fecha}', '{atendio}', {GlobalVariables.UserIdConnected});";
                     conn.ExecuteQuery(query);
                     
 

@@ -55,3 +55,4 @@ C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcor
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.Views.SettingsOptions.Diseño.resources
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.MainWindow.resources
 C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.Login.resources
+C:\Users\USUARIO\source\repos\GymSystemDesktop\GymSystemDesktop\obj\Debug\netcoreapp3.1\GymSystemDesktop.Views.SettingsOptions.Planes.resources

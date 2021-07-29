@@ -35,6 +35,7 @@ namespace GymSystemDesktop.Views
             dgvUsers.DataSource = users;
             dgvUsers.Columns["id"].Visible = false;
             dgvUsers.Columns["img"].Visible = false;
+            dgvUsers.Columns["idsucursal"].Visible = false;
             PaintTable();
 
         }

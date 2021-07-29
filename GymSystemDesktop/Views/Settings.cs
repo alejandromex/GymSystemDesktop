@@ -12,34 +12,15 @@ namespace GymSystemDesktop.Views
     public partial class Settings : Form
     {
 
-        Diseño diseño;
-        List<Control> views;
         Object lastViewInScreen;
         Point spawnPositionViews = new Point(270, 40);
 
         public Settings()
         {
             InitializeComponent();
-            views = new List<Control>();
-            diseño = new Diseño();
 
-            views.Add(diseño);
-
-            SetViews();
         }
 
-        private void SetViews()
-        {
-            foreach(Control view in views)
-            {
-                view.Visible = false;
-                view.Location = spawnPositionViews;
-                view.BackColor = Color.FromArgb(225,224, 224, 224);
-                Controls.Add(view);
-            }
-
-            Controls.Add(diseño);
-        }
 
         private void lbOptions_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -47,21 +28,32 @@ namespace GymSystemDesktop.Views
 
             if(lbOptions.SelectedItem.ToString() == "Diseño")
             {
-                lastViewInScreen = diseño;
-                diseño.Visible = true;
                 lblTituloOpcion.Text = "Diseño";
-                lblTituloOpcion.Visible = true;
+                Controls.Remove((Control)lastViewInScreen);
+                Diseño diseño = new Diseño();
+                diseño.Location = spawnPositionViews;
+                lastViewInScreen = diseño;
+                Controls.Add(diseño);
             }
-            else
+            else if(lbOptions.SelectedIndex == 1)
             {
-                ((Control)(lastViewInScreen)).Visible = false;
+                lblTituloOpcion.Text = "Planes";
+                Controls.Remove((Control)lastViewInScreen);
+                Planes planes = new Planes();
+                planes.Location = spawnPositionViews;
+                lastViewInScreen = planes;
+                Controls.Add(planes);
             }
 
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-
+            lblTituloOpcion.Text = "Diseño";
+            Diseño diseño = new Diseño();
+            diseño.Location = spawnPositionViews;
+            lastViewInScreen = diseño;
+            Controls.Add(diseño);
         }
     }
 }

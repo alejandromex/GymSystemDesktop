@@ -60,7 +60,6 @@ namespace GymSystemDesktop.Views
             this.lblTituloOpcion.Size = new System.Drawing.Size(78, 30);
             this.lblTituloOpcion.TabIndex = 1;
             this.lblTituloOpcion.Text = "Diseño";
-            this.lblTituloOpcion.Visible = false;
             // 
             // Settings
             // 

@@ -1,4 +1,5 @@
 ﻿using GymSystemDesktop.DbConnection;
+using GymSystemDesktop.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,7 +31,7 @@ namespace GymSystemDesktop.Models
 
             try
             {
-                sql.ExecuteQueryWithParams($"spINSERT_CreateNewUserClient", new string[] { Nombre, Apellido, Edad + "", Llave, FechaInicio + "", FechaFin + "", PlanRegistrado, Direccion, Celular, Img });
+                sql.ExecuteQueryWithParams($"spINSERT_CreateNewUserClient", new string[] { Nombre, Apellido, Edad + "", Llave, FechaInicio + "", FechaFin + "", PlanRegistrado, Direccion, Celular, Img, GlobalVariables.UserIdConnected.ToString() });
                 response = true;
             }
             catch(Exception ex)

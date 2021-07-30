@@ -25,6 +25,12 @@
     <Compile Update="Views\SettingsOptions\Planes.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\SettingsOptions\Promociones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\SettingsOptions\Tienda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\Usuariso.cs">
       <SubType>UserControl</SubType>
     </Compile>

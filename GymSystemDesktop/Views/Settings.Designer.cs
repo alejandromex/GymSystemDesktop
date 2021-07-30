@@ -40,8 +40,8 @@ namespace GymSystemDesktop.Views
             this.lbOptions.Items.AddRange(new object[] {
             "Diseño",
             "Planes",
-            "Precios",
             "Promociones",
+            "Tienda",
             "Usuarios",
             "General",
             "ADMINISTRADOR"});

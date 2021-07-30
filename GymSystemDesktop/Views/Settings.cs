@@ -44,6 +44,24 @@ namespace GymSystemDesktop.Views
                 lastViewInScreen = planes;
                 Controls.Add(planes);
             }
+            else if(lbOptions.SelectedIndex == 2)
+            {
+                lblTituloOpcion.Text = "Promociones";
+                Controls.Remove((Control)lastViewInScreen);
+                Promociones promociones = new Promociones();
+                promociones.Location = spawnPositionViews;
+                lastViewInScreen = promociones;
+                Controls.Add(promociones);
+            }
+            else if(lbOptions.SelectedIndex == 3)
+            {
+                lblTituloOpcion.Text = "Tienda";
+                Controls.Remove((Control)lastViewInScreen);
+                Tienda tienda = new Tienda();
+                tienda.Location = spawnPositionViews;
+                lastViewInScreen = tienda;
+                Controls.Add(tienda);
+            }
 
         }
 

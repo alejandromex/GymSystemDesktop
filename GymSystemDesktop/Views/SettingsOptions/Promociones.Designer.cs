@@ -147,6 +147,7 @@ namespace GymSystemDesktop.Views.SettingsOptions
             this.btnGuardarPromo.TabIndex = 11;
             this.btnGuardarPromo.Text = "Guardar Promo.";
             this.btnGuardarPromo.UseVisualStyleBackColor = true;
+            this.btnGuardarPromo.Click += new System.EventHandler(this.btnGuardarPromo_Click);
             // 
             // label5
             // 

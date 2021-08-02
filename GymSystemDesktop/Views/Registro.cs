@@ -69,7 +69,21 @@ namespace GymSystemDesktop.Views
 
             if (cmbActividad.Text != "" && txtMesesRegistro.Text != "")
             {
-                lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
+                Dictionary<string, object> promotion = CheckIfExistsPromotion(cmbActividad.Text);
+                int pagarPromotion = int.Parse(promotion["precio"].ToString());
+                string comentario = promotion["comentario"].ToString();
+                if(pagarPromotion > 0)
+                {
+                    lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * pagarPromotion);
+                    imgPromotionActive.Visible = true;
+                    promotionToolTip.SetToolTip(imgPromotionActive, comentario);
+                    promotionToolTip.ShowAlways = true;
+                }
+                else
+                {
+                    lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
+                    imgPromotionActive.Visible = false;
+                }
             }
             else
             {
@@ -100,6 +114,8 @@ namespace GymSystemDesktop.Views
 
             if(ValidateControlForms())
             {
+
+
 
                 User user = new User()
                 {
@@ -150,6 +166,32 @@ namespace GymSystemDesktop.Views
 
 
 
+        }
+
+        private Dictionary<string, object> CheckIfExistsPromotion(string actividad)
+        {
+            string query = $"SELECT * FROM promociones where nuevos = 1 and actividad = '{actividad}' order by meses";
+            DataTable promociones = conn.ExecuteQuery(query);
+            int precioPorMes = 0;
+            string precioComentario = "";
+            Dictionary<string, object> promotionActive = new Dictionary<string, object>();
+            if(promociones.Rows.Count > 0)
+            {
+                int mesEscrito = int.Parse(txtMesesRegistro.Text);
+                foreach(DataRow promocion in promociones.Rows)
+                {
+                    if(mesEscrito >= int.Parse(promocion[3].ToString()))
+                    {
+                        precioPorMes = int.Parse(promocion[4].ToString());
+                        precioComentario = promocion[2].ToString();
+                    }
+                }
+
+            }
+            promotionActive["precio"] = precioPorMes;
+            promotionActive["comentario"] = precioComentario;
+
+            return promotionActive;
         }
 
         private void btnSeleccionarFoto_Click(object sender, EventArgs e)

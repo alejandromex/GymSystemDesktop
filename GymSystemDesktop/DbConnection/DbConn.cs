@@ -46,6 +46,20 @@ namespace GymSystemDesktop.DbConnection
 
         }
 
+        public DataTable ExecuteSp(string spName, object[] parameters)
+        {
+            string queryParams = "";
+            for(int i = 0; i< parameters.Length-1; i++)
+            {
+                queryParams += $" '{parameters[i]}', ";
+            }
+
+            queryParams += $" '{parameters[parameters.Length - 1]}'";
+            spName += " " + queryParams;
+            //return spName;
+            return ExecuteQuery(spName);
+        }
+
      
 
         public DataTable ExecuteQueryWithParams(string query, string[] parametros)

@@ -29,6 +29,7 @@ namespace GymSystemDesktop.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreRegistro = new System.Windows.Forms.TextBox();
             this.txtApellidoRegistro = new System.Windows.Forms.TextBox();
@@ -50,7 +51,11 @@ namespace GymSystemDesktop.Views
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnCancelRegistro = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.imgPromotionActive = new System.Windows.Forms.PictureBox();
+            this.promotionToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cbEstudiante = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPromotionActive)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -270,11 +275,34 @@ namespace GymSystemDesktop.Views
             this.lblTotal.TabIndex = 20;
             this.lblTotal.Text = "Total:";
             // 
+            // imgPromotionActive
+            // 
+            this.imgPromotionActive.Image = global::GymSystemDesktop.Properties.Resources.goal_24px;
+            this.imgPromotionActive.Location = new System.Drawing.Point(483, 324);
+            this.imgPromotionActive.Name = "imgPromotionActive";
+            this.imgPromotionActive.Size = new System.Drawing.Size(30, 24);
+            this.imgPromotionActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPromotionActive.TabIndex = 21;
+            this.imgPromotionActive.TabStop = false;
+            this.imgPromotionActive.Visible = false;
+            // 
+            // cbEstudiante
+            // 
+            this.cbEstudiante.AutoSize = true;
+            this.cbEstudiante.Location = new System.Drawing.Point(219, 354);
+            this.cbEstudiante.Name = "cbEstudiante";
+            this.cbEstudiante.Size = new System.Drawing.Size(81, 19);
+            this.cbEstudiante.TabIndex = 22;
+            this.cbEstudiante.Text = "Estudiante";
+            this.cbEstudiante.UseVisualStyleBackColor = true;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.cbEstudiante);
+            this.Controls.Add(this.imgPromotionActive);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnCancelRegistro);
             this.Controls.Add(this.btnRegistro);
@@ -299,6 +327,7 @@ namespace GymSystemDesktop.Views
             this.Name = "Registro";
             this.Size = new System.Drawing.Size(908, 495);
             ((System.ComponentModel.ISupportInitialize)(this.imgUserRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPromotionActive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +356,8 @@ namespace GymSystemDesktop.Views
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnCancelRegistro;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.PictureBox imgPromotionActive;
+        private System.Windows.Forms.ToolTip promotionToolTip;
+        private System.Windows.Forms.CheckBox cbEstudiante;
     }
 }

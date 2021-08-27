@@ -51,11 +51,11 @@ namespace GymSystemDesktop.Views
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnCancelRegistro = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.imgPromotionActive = new System.Windows.Forms.PictureBox();
             this.promotionToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.cbEstudiante = new System.Windows.Forms.CheckBox();
+            this.lblPromotion = new System.Windows.Forms.Label();
+            this.cmbPromociones = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserRegistro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPromotionActive)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +111,7 @@ namespace GymSystemDesktop.Views
             // 
             // txtMesesRegistro
             // 
-            this.txtMesesRegistro.Location = new System.Drawing.Point(219, 325);
+            this.txtMesesRegistro.Location = new System.Drawing.Point(219, 371);
             this.txtMesesRegistro.Name = "txtMesesRegistro";
             this.txtMesesRegistro.Size = new System.Drawing.Size(100, 23);
             this.txtMesesRegistro.TabIndex = 7;
@@ -122,7 +122,7 @@ namespace GymSystemDesktop.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(119, 324);
+            this.label4.Location = new System.Drawing.Point(119, 370);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 25);
             this.label4.TabIndex = 7;
@@ -240,7 +240,7 @@ namespace GymSystemDesktop.Views
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btnRegistro.Location = new System.Drawing.Point(147, 385);
+            this.btnRegistro.Location = new System.Drawing.Point(156, 426);
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.Size = new System.Drawing.Size(126, 45);
             this.btnRegistro.TabIndex = 10;
@@ -257,7 +257,7 @@ namespace GymSystemDesktop.Views
             this.btnCancelRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelRegistro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancelRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btnCancelRegistro.Location = new System.Drawing.Point(329, 385);
+            this.btnCancelRegistro.Location = new System.Drawing.Point(345, 426);
             this.btnCancelRegistro.Name = "btnCancelRegistro";
             this.btnCancelRegistro.Size = new System.Drawing.Size(126, 45);
             this.btnCancelRegistro.TabIndex = 19;
@@ -269,40 +269,51 @@ namespace GymSystemDesktop.Views
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(325, 319);
+            this.lblTotal.Location = new System.Drawing.Point(336, 366);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(65, 30);
             this.lblTotal.TabIndex = 20;
             this.lblTotal.Text = "Total:";
             // 
-            // imgPromotionActive
-            // 
-            this.imgPromotionActive.Image = global::GymSystemDesktop.Properties.Resources.goal_24px;
-            this.imgPromotionActive.Location = new System.Drawing.Point(483, 324);
-            this.imgPromotionActive.Name = "imgPromotionActive";
-            this.imgPromotionActive.Size = new System.Drawing.Size(30, 24);
-            this.imgPromotionActive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPromotionActive.TabIndex = 21;
-            this.imgPromotionActive.TabStop = false;
-            this.imgPromotionActive.Visible = false;
-            // 
             // cbEstudiante
             // 
             this.cbEstudiante.AutoSize = true;
-            this.cbEstudiante.Location = new System.Drawing.Point(219, 354);
+            this.cbEstudiante.Location = new System.Drawing.Point(219, 400);
             this.cbEstudiante.Name = "cbEstudiante";
             this.cbEstudiante.Size = new System.Drawing.Size(81, 19);
             this.cbEstudiante.TabIndex = 22;
             this.cbEstudiante.Text = "Estudiante";
             this.cbEstudiante.UseVisualStyleBackColor = true;
             // 
+            // lblPromotion
+            // 
+            this.lblPromotion.AutoSize = true;
+            this.lblPromotion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPromotion.Location = new System.Drawing.Point(87, 322);
+            this.lblPromotion.Name = "lblPromotion";
+            this.lblPromotion.Size = new System.Drawing.Size(111, 25);
+            this.lblPromotion.TabIndex = 24;
+            this.lblPromotion.Text = "Promocion";
+            // 
+            // cmbPromociones
+            // 
+            this.cmbPromociones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPromociones.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbPromociones.FormattingEnabled = true;
+            this.cmbPromociones.Location = new System.Drawing.Point(219, 324);
+            this.cmbPromociones.Name = "cmbPromociones";
+            this.cmbPromociones.Size = new System.Drawing.Size(252, 25);
+            this.cmbPromociones.Sorted = true;
+            this.cmbPromociones.TabIndex = 23;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.lblPromotion);
+            this.Controls.Add(this.cmbPromociones);
             this.Controls.Add(this.cbEstudiante);
-            this.Controls.Add(this.imgPromotionActive);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnCancelRegistro);
             this.Controls.Add(this.btnRegistro);
@@ -326,8 +337,8 @@ namespace GymSystemDesktop.Views
             this.Controls.Add(this.label1);
             this.Name = "Registro";
             this.Size = new System.Drawing.Size(908, 495);
+            this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgUserRegistro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPromotionActive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,8 +367,9 @@ namespace GymSystemDesktop.Views
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnCancelRegistro;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.PictureBox imgPromotionActive;
         private System.Windows.Forms.ToolTip promotionToolTip;
         private System.Windows.Forms.CheckBox cbEstudiante;
+        private System.Windows.Forms.Label lblPromotion;
+        private System.Windows.Forms.ComboBox cmbPromociones;
     }
 }

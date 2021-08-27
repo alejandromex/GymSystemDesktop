@@ -60,7 +60,7 @@ namespace GymSystemDesktop.Views
             // 
             this.txtNumeroUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumeroUsuario.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumeroUsuario.Location = new System.Drawing.Point(33, 377);
+            this.txtNumeroUsuario.Location = new System.Drawing.Point(33, 390);
             this.txtNumeroUsuario.Name = "txtNumeroUsuario";
             this.txtNumeroUsuario.Size = new System.Drawing.Size(220, 32);
             this.txtNumeroUsuario.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace GymSystemDesktop.Views
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(259, 377);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(112, 42);
+            this.btnLogin.Size = new System.Drawing.Size(112, 51);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -183,7 +183,7 @@ namespace GymSystemDesktop.Views
             this.btnRenovar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRenovar.Location = new System.Drawing.Point(377, 377);
             this.btnRenovar.Name = "btnRenovar";
-            this.btnRenovar.Size = new System.Drawing.Size(112, 42);
+            this.btnRenovar.Size = new System.Drawing.Size(112, 51);
             this.btnRenovar.TabIndex = 5;
             this.btnRenovar.Text = "Renovar";
             this.btnRenovar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

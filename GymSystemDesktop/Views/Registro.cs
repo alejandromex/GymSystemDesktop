@@ -22,8 +22,16 @@ namespace GymSystemDesktop.Views
         public Registro()
         {
             InitializeComponent();
+            conn = DbConn.GetInstance();
+
+        }
+
+        private void Registro_Load(object sender, EventArgs e)
+        {
+            FillThePromotions();
             FillActividadesCombo();
-            if(cmbActividad.Items.Count == 0)
+
+            if (cmbActividad.Items.Count == 0)
             {
                 MessageBox.Show("Asigna planes en el boton de configuraciones");
             }
@@ -31,6 +39,7 @@ namespace GymSystemDesktop.Views
             {
                 cmbActividad.SelectedIndex = 0;
             }
+
             FormControls.Add(txtNombreRegistro);
             FormControls.Add(txtApellidoRegistro);
             FormControls.Add(txtEdadRegistro);
@@ -39,7 +48,9 @@ namespace GymSystemDesktop.Views
             FormControls.Add(txtMesesRegistro);
             FormControls.Add(cmbActividad);
 
-            conn = DbConn.GetInstance();
+
+
+
         }
 
 
@@ -63,27 +74,11 @@ namespace GymSystemDesktop.Views
             }
         }
 
-
         private void SetTotal()
         {
-
             if (cmbActividad.Text != "" && txtMesesRegistro.Text != "")
             {
-                Dictionary<string, object> promotion = CheckIfExistsPromotion(cmbActividad.Text);
-                int pagarPromotion = int.Parse(promotion["precio"].ToString());
-                string comentario = promotion["comentario"].ToString();
-                if(pagarPromotion > 0)
-                {
-                    lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * pagarPromotion);
-                    imgPromotionActive.Visible = true;
-                    promotionToolTip.SetToolTip(imgPromotionActive, comentario);
-                    promotionToolTip.ShowAlways = true;
-                }
-                else
-                {
-                    lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
-                    imgPromotionActive.Visible = false;
-                }
+                lblTotal.Text = "Total: " + (int.Parse(txtMesesRegistro.Text) * PricesActividades[cmbActividad.Text]).ToString();
             }
             else
             {
@@ -114,9 +109,6 @@ namespace GymSystemDesktop.Views
 
             if(ValidateControlForms())
             {
-
-
-
                 User user = new User()
                 {
                     Nombre = txtNombreRegistro.Text,
@@ -164,34 +156,21 @@ namespace GymSystemDesktop.Views
                 MessageBox.Show("Todos los campos son obligatorios");
             }
 
-
-
         }
 
-        private Dictionary<string, object> CheckIfExistsPromotion(string actividad)
+        private void FillThePromotions()
         {
-            string query = $"SELECT * FROM promociones where nuevos = 1 and actividad = '{actividad}' order by meses";
+            string query = "SELECT * from promociones";
             DataTable promociones = conn.ExecuteQuery(query);
-            int precioPorMes = 0;
-            string precioComentario = "";
-            Dictionary<string, object> promotionActive = new Dictionary<string, object>();
+            cmbPromociones.Items.Clear();
             if(promociones.Rows.Count > 0)
             {
-                int mesEscrito = int.Parse(txtMesesRegistro.Text);
-                foreach(DataRow promocion in promociones.Rows)
-                {
-                    if(mesEscrito >= int.Parse(promocion[3].ToString()))
-                    {
-                        precioPorMes = int.Parse(promocion[4].ToString());
-                        precioComentario = promocion[2].ToString();
-                    }
-                }
 
             }
-            promotionActive["precio"] = precioPorMes;
-            promotionActive["comentario"] = precioComentario;
-
-            return promotionActive;
+            else
+            {
+                cmbPromociones.Items.Add("Sin promociones activas");
+            }
         }
 
         private void btnSeleccionarFoto_Click(object sender, EventArgs e)
@@ -245,5 +224,7 @@ namespace GymSystemDesktop.Views
             SetTotal();
 
         }
+
+
     }
 }
